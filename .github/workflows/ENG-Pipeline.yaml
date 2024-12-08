@@ -1,3 +1,45 @@
+# name: CI Pipeline for React-App-Test
+
+# on:
+#   push:
+#     branches:
+#       - '**' # Matches any branch
+
+# jobs:
+#   ci:
+#     name: Build, Test, and Security Scan
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       # Checkout the repository
+#       - name: Checkout Code
+#         uses: actions/checkout@v3
+
+#       # Set up Node.js
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: '18'
+#           cache: 'npm'
+
+#       # Install dependencies
+#       - name: Install Dependencies
+#         run: npm install
+
+#       # Build the TypeScript project
+#       - name: Build Application
+#         run: npm run build
+
+#       # Run unit tests
+#       - name: Run Tests
+#         run: echo run unit test
+
+#       # Run static security scan using Snyk
+#       - name: Static Security Test
+#         run: echo run static security test
+        
+
+      
 name: CI Pipeline for React-App-Test
 
 on:
@@ -26,17 +68,18 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # Build the TypeScript project
+      # Debug installed dependencies
+      - name: List Installed Packages
+        run: npm list --depth=0
+
+      # Build the application
       - name: Build Application
         run: npm run build
 
       # Run unit tests
       - name: Run Tests
-        run: echo run unit test
+        run: echo "Run unit tests here"
 
       # Run static security scan using Snyk
       - name: Static Security Test
-        run: echo run static security test
-        
-
-      
+        run: echo "Run static security scan here"
